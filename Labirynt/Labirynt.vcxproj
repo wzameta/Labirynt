@@ -129,6 +129,18 @@
   <ItemGroup>
     <ClCompile Include="main.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="backtrackingSolver.h" />
+    <ClInclude Include="dynamicArray.h" />
+    <ClInclude Include="myexceptions.h" />
+    <ClInclude Include="mazeSolver.h" />
+    <ClInclude Include="maze.h" />
+    <ClInclude Include="mapSolver.h" />
+    <ClInclude Include="mazeExt.h" />
+    <ClInclude Include="path.h" />
+    <ClInclude Include="point.h" />
+    <ClInclude Include="routeFinder.h" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

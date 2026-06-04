@@ -127,7 +127,16 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="backtrackingSolver.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="mapSolver.cpp" />
+    <ClCompile Include="maze.cpp" />
+    <ClCompile Include="mazeExt.cpp" />
+    <ClCompile Include="mazeSolver.cpp" />
+    <ClCompile Include="myexceptions.cpp" />
+    <ClCompile Include="path.cpp" />
+    <ClCompile Include="point.cpp" />
+    <ClCompile Include="routeFinder.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="backtrackingSolver.h" />

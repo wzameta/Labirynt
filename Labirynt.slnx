@@ -3,5 +3,5 @@
     <Platform Name="x64" />
     <Platform Name="x86" />
   </Configurations>
-  <Project Path="Labirynt/Labirynt.vcxproj" />
+  <Project Path="Labirynt/Labirynt.vcxproj" Id="f7b9dbbf-47ab-4928-9e98-6a994fa5bd23" />
 </Solution>

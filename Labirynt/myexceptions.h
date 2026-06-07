@@ -6,10 +6,7 @@
 
 /*
  * Klasa MyExceptions zawiera definicje wyjatkow uzywanych w projekcie.
- * Kazdy wyjatek dziedziczy po std::exception i nadpisuje metode what(),
- * ktora zwraca opis bledu jako tekst.
- *
- * Wyjatki sa zdefiniowane jako klasy wewnetrzne (nested classes) klasy MyExceptions.
+ * Kazdy wyjatek dziedziczy po std::exception i nadpisuje metode what(), ktora zwraca opis bledu jako tekst.
  */
 class MyExceptions
 {
@@ -17,7 +14,6 @@ public:
 
     /*
      * Wyjatek rzucany gdy indeks tablicy lub wspolrzedna jest poza zakresem.
-     * Np. gdy probujemy odczytac pole (x, y) ktore nie istnieje w labiryncie.
      */
     class OutOfBounds : public std::exception
     {
@@ -48,7 +44,6 @@ public:
 
     /*
      * Wyjatek rzucany gdy przekazano niepoprawny argument do funkcji.
-     * Np. gdy podajemy ujemny rozmiar tablicy lub wskaznik nullptr.
      */
     class InvalidArgument : public std::exception
     {
@@ -106,4 +101,4 @@ public:
     };
 };
 
-#endif // MYEXCEPTIONS_H
+#endif

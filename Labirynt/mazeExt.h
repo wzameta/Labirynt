@@ -5,29 +5,25 @@
 #include "myexceptions.h"
 
 /*
- * Klasa MazeExt - konkretna implementacja interfejsu Maze.
+ * Klasa MazeExt - implementacja interfejsu Maze.
  *
  * Klasa ta reprezentuje rzeczywisty labirynt przechowywany w pamieci.
- * Dane labiryntu sa zapisane w tablicy dynamicznej typu bool (_data),
- * gdzie kazdy element odpowiada jednemu polu labiryntu.
- *
- * Uklad danych w tablicy:
- * - pole (x, y) jest przechowywane pod indeksem: y * _width + x
- * - to tzw. "row-major order" (wiersze po sobie)
+ * Dane labiryntu sa zapisane w tablicy dynamicznej typu bool (_data), gdzie kazdy element odpowiada jednemu polu labiryntu.
+ * Pole (x, y) jest przechowywane pod indeksem: y * _width + x
  */
 class MazeExt : public Maze
 {
 private:
     bool* _data;   // wskaznik na tablice dynamiczna przechowujaca dane labiryntu
-    unsigned _width;  // szerokosc labiryntu (liczba kolumn)
-    unsigned _height; // wysokosc labiryntu (liczba wierszy)
+    unsigned _width;  // szerokosc labiryntu 
+    unsigned _height; // wysokosc labiryntu 
 
 public:
     /*
      * Konstruktor - tworzy pusty labirynt (wszystkie pola sa wolne)
      *
-     * @param width  szerokosc labiryntu (liczba kolumn), musi byc > 0
-     * @param height wysokosc labiryntu (liczba wierszy), musi byc > 0
+     * @param width  szerokosc labiryntu musi byc > 0
+     * @param height wysokosc labiryntu musi byc > 0
      *
      * @throws MyExceptions::InvalidArgument gdy width lub height wynosi 0
      */
@@ -75,4 +71,4 @@ public:
     void setWall(unsigned x, unsigned y, bool value) override;
 };
 
-#endif // MAZEEXT_H
+#endif

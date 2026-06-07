@@ -1,16 +1,12 @@
 #include "mapSolver.h"
 
-/*
- * Konstruktor - inicjujemy wskaznik na nullptr.
- */
+
 MapSolver::MapSolver()
     : _distMap(nullptr)
 {
 }
 
-/*
- * Destruktor - zwalniamy mape odleglosci jezeli zostala przydzielona.
- */
+
 MapSolver::~MapSolver()
 {
 
@@ -18,13 +14,7 @@ MapSolver::~MapSolver()
     _distMap = nullptr;
 }
 
-/*
- * Glowna metoda szukania drogi.
- * 1. Waliduje argumenty
- * 2. Buduje mape odleglosci (BFS od mety)
- * 3. Sprawdza czy start jest osiagalny
- * 4. Odtwarza sciezke
- */
+
 bool MapSolver::findPath(const Maze& m, Point start, Point finish, Path& result)
 {
     // ---- Walidacja argumentow ----
@@ -69,17 +59,7 @@ bool MapSolver::findPath(const Maze& m, Point start, Point finish, Path& result)
     return true;
 }
 
-/*
- * Buduje mape odleglosci od punktu finish uzywajac algorytmu BFS.
- *
- * BFS (Breadth First Search) - przeszukiwanie wszerz:
- * - Uzywamy kolejki (queue) do przechowywania pol do odwiedzenia
- * - Zaczynamy od mety (odleglosc = 0)
- * - Dla kazdego pola dodajemy jego sasiadow do kolejki z odlegloscia +1
- * - Powtarzamy az kolejka bedzie pusta
- *
- * Implementujemy kolejke recznie uzywajac tablicy i dwoch indeksow (head, tail).
-*/
+
 void MapSolver::_buildMap(const Maze& m, Point finish)
 {
     unsigned width = m.width();
@@ -89,7 +69,7 @@ void MapSolver::_buildMap(const Maze& m, Point finish)
     // Zwalniamy stara mape
     delete[] _distMap;
 
-    // Alokujemy nowa mape i wypelniamy wartoscia -1 (nieosiagalne)
+    // Alokujemy nowa mape i wypelniamy wartoscia -1 
     _distMap = new int[total];
     for (unsigned i = 0; i < total; i++)
     {
@@ -145,7 +125,7 @@ void MapSolver::_buildMap(const Maze& m, Point finish)
                 continue;
             }
 
-            // Pomijamy pola juz odwiedzone (odleglosc != -1)
+            // Pomijamy pola juz odwiedzone 
             if (_distMap[(unsigned)ny * width + (unsigned)nx] != -1)
             {
                 continue;
@@ -166,18 +146,7 @@ void MapSolver::_buildMap(const Maze& m, Point finish)
     delete[] queueY;
 }
 
-/*
- * Odtwarza sciezke od start do finish uzywajac mapy odleglosci.
- *
- * Algorytm:
- * 1. Zaczynamy od punktu startowego
- * 2. W kazdym kroku szukamy sasiada z MNIEJSZA odlegloscia od mety
- * 3. Idziemy na ten sasiad i powtarzamy
- * 4. Zatrzymujemy sie gdy dotrzemy do mety (odleglosc = 0)
- *
- * To dziala bo mapa odleglosci gwarantuje ze zawsze istnieje kierunek
- * z malejaca odlegloscia (jesli start jest osiagalny).
- */
+
 void MapSolver::_reconstruct(const Maze& m, Point start, Point finish, Path& result)
 {
     unsigned width = m.width();
@@ -215,7 +184,7 @@ void MapSolver::_reconstruct(const Maze& m, Point start, Point finish, Path& res
             // Pobieramy odleglosc sasiada
             int neighborDist = _distMap[(unsigned)ny * width + (unsigned)nx];
 
-            // Sprawdzamy czy sasiad ma mniejsza odleglosc (jest blizej mety)
+            // Sprawdzamy czy sasiad ma mniejsza odleglosc
             if (neighborDist != -1 && neighborDist < bestDist)
             {
                 bestDist = neighborDist;

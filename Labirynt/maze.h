@@ -4,13 +4,9 @@
 #include <iostream>
 
 /*
- * Interfejs Maze - abstrakcyjna klasa bazowa reprezentujaca labirynt.
+ * Interfejs Maze - abstrakcyjna klasa bazowa reprezentujaca labirynt (interfejs).
  *
- * "Interfejs" w C++ to klasa, ktora zawiera wylacznie czyste metody wirtualne (pure virtual).
- * Oznacza to, ze klasa Maze sama w sobie NIE moze byc uzyta bezposrednio - trzeba
- * stworzyc klase pochodna, ktora zaimplementuje wszystkie te metody.
- *
- * Labirynt skladaja sie z pol wolnych i scian. Wspolrzedne (x, y) oznaczaja:
+ * Labirynt sklada sie z pol wolnych i scian. Wspolrzedne (x, y) oznaczaja:
  * - x: kolumna (0 = lewa krawedz, width-1 = prawa krawedz)
  * - y: wiersz   (0 = gorny wiersz, height-1 = dolny wiersz)
  */
@@ -18,9 +14,8 @@ class Maze
 {
 public:
     /*
-     * Wirtualny destruktor - konieczny w klasach bazowych (interfejsach).
-     * Bez niego usuniecie obiektu przez wskaznik na klase bazowa moze nie
-     * wywolac destruktora klasy pochodnej (wycieki pamieci).
+     * Wirtualny destruktor - konieczny w klasach bazowych (interfejsach)
+     * Bez niego usuniecie obiektu przez wskaznik na klase bazowa moze nie wywolac destruktora klasy pochodnej
      */
     virtual ~Maze() {}
 
@@ -61,15 +56,10 @@ public:
  * Przeciazenie operatora << dla klasy Maze.
  * Pozwala wypisac labirynt do strumienia np: cout << *maze;
  *
- * Konwencja wyswietlania:
- * - '#' oznacza sciane
- * - '.' oznacza pole wolne
- * Kazdy wiersz labiryntu jest wypisywany w nowej linii.
- *
- * @param out strumien wyjsciowy (np. cout)
+ * @param out strumien wyjsciowy 
  * @param m   referencja na labirynt do wypisania
- * @return    referencja na strumien (umozliwia laczenie: cout << m1 << m2)
+ * @return    referencja na strumien 
  */
 std::ostream& operator<<(std::ostream& out, const Maze& m);
 
-#endif // MAZE_H
+#endif

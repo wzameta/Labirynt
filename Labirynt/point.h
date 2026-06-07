@@ -11,8 +11,8 @@
 class Point
 {
 private:
-    unsigned _x; // kolumna punktu
-    unsigned _y; // wiersz punktu
+    unsigned _x; 
+    unsigned _y; 
 
 public:
     /*
@@ -30,18 +30,18 @@ public:
     Point(unsigned x, unsigned y);
 
     /*
-     * Zwraca wspolrzedna x (kolumna) punktu
+     * Zwraca wspolrzedna x  punktu
      *
      * @return wspolrzedna x
      */
     unsigned x() const;
 
     /*
-     * Zwraca wspolrzedna y (wiersz) punktu
+     * Zwraca wspolrzedna y punktu
      *
      * @return wspolrzedna y
      */
     unsigned y() const;
 };
 
-#endif // POINT_H
+#endif 

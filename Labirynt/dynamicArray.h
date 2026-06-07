@@ -6,18 +6,10 @@
 /*
  * Szablon klasy DynamicArray - dynamiczna tablica o zmiennym rozmiarze.
  *
- * Jest to "template" (szablon) - oznacza to, ze mozemy uzyc tej klasy
- * dla roznych typow danych. Np. DynamicArray<Point> lub DynamicArray<int>.
+ * Przechowuje elementy w dynamicznie alokowanej tablicy
+ * Automatycznie zwieksza rozmiar gdy jest za mala (capacity)
  *
- * Klasa dziala podobnie do std::vector:
- * - przechowuje elementy w dynamicznie alokowanej tablicy
- * - automatycznie zwieksza rozmiar gdy jest za mala (capacity)
- *
- * Wazna roznica: _size = ile elementow aktualnie przechowujemy
- *               _capacity = ile elementow zmiesci sie bez realokacji
- *
- * Cale cialo szablonu musi byc w pliku .h (nie mozna rozdzielic na .h/.cpp
- * w tradycyjny sposob - kompilator musi widziec cala definicje szablonu).
+ * Cale cialo szablonu musi byc w pliku .h bo kompilator musi widziec cala definicje szablonu
  */
 template <typename T>
 class DynamicArray
@@ -25,7 +17,7 @@ class DynamicArray
 private:
     T* _data;     // wskaznik na dynamicznie alokowana tablice
     unsigned _size;     // aktualna liczba przechowywanych elementow
-    unsigned _capacity; // pojemnosc tablicy (ile sie zmiesci zanim bedziemy rozszerzac)
+    unsigned _capacity; // pojemnosc tablicy
 
     /*
      * Rozszerza tablice dwukrotnie gdy jest pelna.
@@ -73,8 +65,7 @@ public:
 
     /*
      * Konstruktor kopiujacy - tworzy niezalezna kopie tablicy.
-     * Konieczny bo przechowujemy wskaznik (_data) - bez tego
-     * dwa obiekty wskazywaylyby na ten sam obszar pamieci!
+     * Konieczny bo przechowujemy wskaznik (_data) - bez tego dwa obiekty wskazywaylyby na ten sam obszar pamieci
      *
      * @param other tablica do skopiowania
      */
@@ -93,10 +84,9 @@ public:
 
     /*
      * Operator przypisania - kopiuje zawartosc innej tablicy.
-     * Konieczny z tych samych powodow co konstruktor kopiujacy.
      *
      * @param other tablica do skopiowania
-     * @return referencja na siebie (umozliwia a = b = c)
+     * @return referencja na siebie
      */
     DynamicArray<T>& operator=(const DynamicArray<T>& other)
     {
@@ -151,11 +141,10 @@ public:
 
     /*
      * Usuwa wszystkie elementy z tablicy (ale nie zwalnia pamieci).
-     * Po wywolaniu clear() rozmiar = 0, ale pojemnosc zostaje.
      */
     void clear()
     {
-        _size = 0; // ustawiamy licznik na 0 (dane dalej sa w pamieci ale "ignorujemy" je)
+        _size = 0; // ustawiamy licznik na 0 
     }
 
     /*
@@ -169,7 +158,7 @@ public:
     }
 
     /*
-     * Operator [] - dostep do elementu po indeksie (tylko odczyt).
+     * Operator [] - dostep do elementu po indeksie (odczyt).
      *
      * @param i indeks elementu (0 do size-1)
      * @return element pod danym indeksem
@@ -186,4 +175,4 @@ public:
     }
 };
 
-#endif // DYNAMICARRAY_H
+#endif 

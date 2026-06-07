@@ -17,18 +17,13 @@
  * - wynikowa sciezka (Path) - wynik ostatniego szukania
  *
  * Dzieki metodzie changeSolver() mozemy latwo zmienic algorytm
- * dla tego samego labiryntu i tych samych punktow startowego/koncowego.
- * To jest wzorzec projektowy "Strategia" (Strategy Pattern).
- *
- * UWAGA: RouteFinder przechowuje wskazniki na Maze i MazeSolver,
- * ale NIE jest ich wlascicielem - nie zwalnia ich pamieci w destruktorze.
- * Odpowiedzialnosc za zwalnianie pamieci spoczywa na wywolujacym.
+ * To wzorzec projektowy "strategia"
  */
 class RouteFinder
 {
 private:
-    Maze* _maze;   // wskaznik na labirynt (nie zwalniamy!)
-    MazeSolver* _solver; // wskaznik na algorytm  (nie zwalniamy!)
+    Maze* _maze;   // wskaznik na labirynt
+    MazeSolver* _solver; // wskaznik na algorytm
     Point       _start;  // punkt startowy
     Point       _finish; // punkt koncowy
     Path        _path;   // ostatnio wyznaczona sciezka
@@ -56,21 +51,18 @@ public:
 
     /*
      * Zmienia algorytm szukania drogi na nowy.
-     * Mozna potem wywolac solve() ponownie z nowym algorytmem.
      *
      * @param newSolver wskaznik na nowy algorytm
-     *
      * @throws MyExceptions::InvalidArgument gdy newSolver jest nullptr
      */
     void changeSolver(MazeSolver* newSolver);
 
     /*
      * Zwraca ostatnio wyznaczona sciezke.
-     * Jezeli solve() nie bylo wywolane lub nie znalezlo drogi, sciezka bedzie pusta.
      *
      * @return ostatnia wyznaczona sciezka (kopia)
      */
     Path getPath() const;
 };
 
-#endif // ROUTEFINDER_H
+#endif 

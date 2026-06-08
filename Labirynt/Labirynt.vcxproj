@@ -136,6 +136,7 @@
     <ClCompile Include="path.cpp" />
     <ClCompile Include="point.cpp" />
     <ClCompile Include="routeFinder.cpp" />
+    <ClCompile Include="mazeSolver.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="backtrackingSolver.h" />
